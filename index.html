@@ -8,9 +8,39 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button>Change size of grid</button>
     <div class="container">
-        <div class="grid"></div>
+        <div class="header">
+            <h1>Etch-a-Sketch</h1>
+        </div>
+        <div class="hero">
+            <div class="menu">
+                <div class="row">
+                    <div id="inputContainer">
+                        <div>
+                            <label for="squares">Please enter number of squares per side: </label>
+                            <input type="text" id="squares">
+                            <button id="enter">Enter</button>
+                        </div>
+                        <div>(Maximum of 100)</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="toggle">Toggle grid: </label>
+                    <button id="toggle">Toggle</button>
+                </div>
+                <div class="row">
+                    <label for="clear">Clear grid: </label>
+                    <button id="clear">Clear</button>
+                </div>
+                <div class="row">
+                    <label for="randomize">Randomize color: </label>
+                    <button id="randomize">Randomize</button>
+                </div>
+            </div>
+            <div class="gridContainer">
+                <div class="grid"></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

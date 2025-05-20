@@ -48,13 +48,18 @@ body {
     background-color: white;
 }
 
-.row {
-    display: flex;
-}
-
 .square {
     border: 1px solid black;
     box-sizing: border-box;
+}
+
+.overlay {
+    width: 100%; 
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
 }
 
 .button {

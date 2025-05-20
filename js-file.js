@@ -7,18 +7,29 @@ function makeGrid(size) {
         let row = document.createElement('div');
         row.style.display = 'flex';
         for (let j = 0; j < size; j++) {
+            let overlay = document.createElement('div');
+            overlay.classList.add('overlay');
             let square = document.createElement('div');
             square.classList.add('square')
+            square.appendChild(overlay);
             square.style.width = `${700 / size}px`;
             square.style.height = `${700 / size}px`;
             row.appendChild(square);
-            square.addEventListener('mouseover', () => {
-                square.style.backgroundColor = 'grey';
-            });
         }
         grid.appendChild(row);
     }
     container.appendChild(grid);
+
+    let squares = document.querySelectorAll('.square');
+    squares.forEach(square => {
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = 'grey';
+            square.style.cursor = 'pointer';
+            let overlay = square.querySelector('.overlay');
+            let currentOpacity = parseFloat(getComputedStyle(overlay).opacity);
+            overlay.style.opacity = Math.min(1, currentOpacity + 0.1);
+        })
+    });
 }  
 
 makeGrid(size);
@@ -57,6 +68,8 @@ clear.addEventListener('click', () => {
     let squares = document.querySelectorAll('.square');
     squares.forEach(square => {
         let fill = getComputedStyle(square).backgroundColor;
+        let overlay = square.querySelector('.overlay');
+        overlay.style.opacity = '0';
         console.log(fill);
         if (fill !== 'rgba(0, 0, 0, 0)') {
             square.style.backgroundColor = 'rgba(0, 0, 0, 0)';
